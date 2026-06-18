@@ -405,6 +405,16 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     max-height: 350px; /* Capping maximum display size for project showcases */
     object-fit: contain;
     border-radius: 6px;
+
+    /* Smooth animated shadow and position change over 0.3 seconds*/
+    transition: box-shadow 0.3s ease, transform 0.3s ease, color 0.2s;
+}
+
+/* Glow effect triggered when hovering over a project image */
+.work__image:hover {
+    /* Slightly lifts the image upward (creates a great pairing with the glow) */
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px 4px rgba(230, 0, 18, 0.45);
 }
 
 @media(min-width: 901px) {
