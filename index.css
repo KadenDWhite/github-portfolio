@@ -416,6 +416,10 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     /* Slightly lifts the image upward (creates a great pairing with the glow) */
     transform: translateY(-5px);
     box-shadow: 0 0 25px 4px rgba(0, 212, 255, 0.5);
+
+    /* Force the image to layer above everything else so the shadow isn't hidden */
+    position: relative;
+    z-index: 5;
 }
 
 @media(min-width: 901px) {
