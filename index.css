@@ -411,10 +411,10 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
 }
 
 /* Glow effect triggered when hovering over a project image */
-.work__image:hover {
+.work__image:hover, .about_photo:hover {
     /* Slightly lifts the image upward (creates a great pairing with the glow) */
     transform: translateY(-5px);
-    box-shadow: 0 0 25px 4px rgba(230, 0, 18, 0.45);
+    box-shadow: 0 0 25px 4px rgba(0, 212, 255, 0.5);
 }
 
 @media(min-width: 901px) {
