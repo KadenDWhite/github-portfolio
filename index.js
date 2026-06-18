@@ -38,36 +38,17 @@ window.addEventListener("scroll", () => {
 }); 
 
 /* ----------------------------------------- */ 
-/* ------- Project Trailer Lightbox -------- */ 
+/* --- CSS Modal Trailer Audio Kill-Switch -- */ 
 /* ----------------------------------------- */ 
-const trailerModal = document.getElementById('trailerModal'); 
-const openTrailerBtn = document.getElementById('openTrailerBtn'); 
-const closeTrailerBtn = document.getElementById('closeTrailerBtn'); 
-const modalVideoFrame = document.getElementById('modalVideoFrame'); 
-
-// Optimized Trailer URL with Autoplay and Clean Branding Parameters
-const youtubeEmbedUrl = "https://www.youtube.com/embed/ptTOkNQs6W4?si=DLygMpXl6pRLfdSU"; 
-
-if (openTrailerBtn && trailerModal && modalVideoFrame) { 
-    // Open Overlay Window Event 
-    openTrailerBtn.addEventListener('click', () => { 
-        // Removed e.preventDefault() to clear native browser action blocker cascades
-        modalVideoFrame.src = youtubeEmbedUrl; 
-        trailerModal.style.visibility = "visible"; 
-        trailerModal.style.opacity = "1"; 
-    }); 
-
-    // Close Overlay Window Function 
-    const closeModal = () => { 
-        trailerModal.style.opacity = "0"; 
-        trailerModal.style.visibility = "hidden"; 
-        modalVideoFrame.src = ""; // Strips source code to instantly halt audio track 
-    }; 
-
-    if (closeTrailerBtn) closeTrailerBtn.addEventListener('click', closeModal); 
-
-    // Close overlay if background element workspace is clicked 
-    trailerModal.addEventListener('click', (e) => { 
-        if (e.target === trailerModal) closeModal(); 
-    }); 
-}
+// Since the modal is pure CSS, this resets the iframe source URL 
+// upon clicking close so the YouTube soundtrack stops instantly.
+window.addEventListener('hashchange', () => {
+    const iframe = document.querySelector('#watchTrailer iframe');
+    if (iframe) {
+        if (window.location.hash !== '#watchTrailer') {
+            const currentSrc = iframe.src;
+            iframe.src = '';         // Strips source code to instantly halt audio track
+            iframe.src = currentSrc;   // Reloads source instantly so it's ready for the next click
+        }
+    }
+});
