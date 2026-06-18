@@ -59,16 +59,26 @@
                                 </a> 
                             </div> 
                         </div> 
-                        <!-- Clickable Project Screenshot Link Wrapper --> 
+                        <!-- Clickable Screenshot pointing directly to the #watchTrailer CSS target --> 
                         <div class="work__image-box"> 
-                            <a href="javascript:void(0);" id="openTrailerBtn" style="outline: none; display: block; cursor: pointer; text-decoration: none;" title="Click to view Gameplay Trailer"> 
+                            <a href="#watchTrailer" style="outline: none; display: block; cursor: pointer; text-decoration: none;" title="Click to view Gameplay Trailer"> 
                                 <img src="./images/project-1.png" class="work__image" alt="Gone Nuts Project Screenshot" /> 
                                 <div style="text-align: center; margin-top: 1rem; color: var(--accent-red); font-size: 1.4rem; font-family: 'Jost', sans-serif; font-weight: bold;"> 
                                     ▶ Click Image to View Trailer 
                                 </div> 
                             </a> 
                         </div> 
-                    </div> 
+                        </div> <!-- End of Let's Get Nuts work__box -->
+                        
+                        <!-- 100% CSS ONLY TRAILER LIGHTBOX MODAL OVERLAY --> 
+                        <div id="watchTrailer" class="css-modal-overlay"> 
+                            <div class="css-modal-content"> 
+                                <!-- Closing the modal simply clears the URL target hash --> 
+                                <a href="#games" class="css-modal-close">✕ Close Player</a> 
+                                <iframe src="https://youtube.com" title="Let's Get Nuts Gameplay Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border-radius: 6px;"></iframe> 
+                            </div> 
+                        </div>
+
 
                     <!-- Project 2: Shark Trivia --> 
                     <div class="work__box"> 
