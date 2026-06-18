@@ -9,6 +9,13 @@
     src: url('./fonts/HKGrotesk-Regular.woff') format('woff'); 
 } 
 
+@font-face { 
+    font-family: 'Jost'; 
+    font-style: normal; 
+    font-weight: 400; 
+    src: url('./fonts/Jost-Regular.ttf') format('truetype'); 
+} 
+
 * { 
     margin: 0; 
     padding: 0; 
@@ -177,83 +184,308 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     content: ''; 
     display: block; 
     position: absolute; 
-    top:
-/* Fix massive image layout scaling bugs */
-.work__image-box img,
-.about__photo-container img {
-    width: 100%;
-    height: auto;
-    max-height: 450px;
-    object-fit: cover;
+    top: 0; 
+    left: 0; 
+    right: 100%; 
+    background: var(--white); 
+    height: 100%; 
+    z-index: -1; 
+    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9); 
+} 
+
+.btn:hover::after, .btn:focus::after { 
+    right: 0; 
+    background: var(--accent-red); 
+} 
+
+.btn--blue { 
+    background: var(--accent-red); 
+    transition: all 0.2s; 
+} 
+
+.btn--blue::after { display: none; } 
+
+.btn--blue:hover, .btn--blue:focus { 
+    background: transparent; 
+} 
+
+.link__text { 
+    position: relative; 
+    display: inline-block; 
+    padding: .6rem; 
+    color: inherit; 
+    text-decoration: none; 
+    border-bottom: 1px solid var(--accent-red); 
+} 
+
+.link__text::after { 
+    content: ''; 
+    display: block; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 100%; 
+    background: var(--white); 
+    height: 100%; 
+    z-index: -1; 
+    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9); 
+} 
+
+.link__text:focus { outline: none; } 
+
+.link__text:hover::after, .link__text:focus:after { 
+    right: 0; 
+    background: var(--accent-red); 
+} 
+
+.link__text span { 
+    padding-left: 1rem; 
+    font-family: sans-serif; 
+} 
+
+.back-to-top { 
+    position: fixed; 
+    bottom: 4rem; 
+    right: 4rem; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 5.5rem; 
+    width: 5.5rem; 
+    background-color: var(--accent-red); 
+    border-radius: 50%; 
+    z-index: 10; 
+    visibility: hidden; 
+    transition: all .4s; 
+} 
+
+.back-to-top__image { height: 70%; } 
+
+@media(max-width: 900px) { .back-to-top { right: 2rem; } } 
+@media(max-width: 500px) { .back-to-top { right: 1rem; } } 
+
+.nav { 
+    display: flex; 
+    justify-content: flex-end; 
+    padding: var(--gutter-normal) 0; 
+} 
+
+.nav__items { 
+    display: flex; 
+    list-style: none; 
+} 
+
+.nav__item:not(:last-child) { 
+    margin-right: var(--gutter-medium); 
+} 
+
+@media(max-width: 500px) { 
+    .nav { justify-content: center; } 
+} 
+
+@media(max-width: 400px) { 
+    .nav__item:not(:last-child) { margin-right: var(--gutter-normal); } 
+} 
+
+.nav__link { 
+    position: relative; 
+    display: inline-block; 
+    padding: 1rem 0; 
+    text-decoration: none; 
+    color: inherit; 
+    transition: all .2s; 
+} 
+
+.nav__link::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    right: 100%; 
+    display: inline-block; 
+    height: 1rem; 
+    background: var(--white); 
+    transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9); 
+} 
+
+.nav__link:hover { color: var(--accent-red); } 
+.nav__link:hover::after { 
+    right: 0; 
+    height: 2px; 
+    background: var(--accent-red); 
+} 
+
+.header { 
+    background: linear-gradient(rgba(0,0,0, .4), rgba(0,0,0, .7)), url('./images/header.jpg'); 
+    height: 100vh; 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    font-size: var(--font-size-normal); 
+} 
+
+.header__text { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+} 
+
+.header__text p { 
+    margin: 1.5rem 0 3.5rem; 
+    max-width: var(--container-medium-width); 
+    font-family: 'Jost', sans-serif; 
+    font-size: var(--font-size-medium); 
+} 
+
+@media(max-width: 500px) { 
+    .header { text-align: center; } 
+    .header__text p { transform: scale(.8); } 
+} 
+
+.work__boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
 }
 
-.footer__social-link-item a {
-    display: inline-block;
-    width: 4rem;
-    height: 4rem;
-}
+.work__box { 
+    display: flex; 
+    align-items: center; 
+} 
 
-.footer__social-image {
+@media(max-width: 900px) { 
+    .work__box { 
+        align-items: initial; 
+        flex-direction: column-reverse; 
+    } 
+} 
+
+.work__links { 
+    display: flex; 
+    align-items: center; 
+    gap: 2rem;
+} 
+
+.work__text { flex: 0 0 45%; } 
+
+.work__list { 
+    list-style-position: inside; 
+    margin-bottom: var(--gutter-normal); 
+} 
+
+.work__code { 
+    display: block; 
+    height: 3rem; 
+    transition: all .3s; 
+} 
+
+.work__code:hover { transform: scale(1.2); } 
+
+.work__image-box { margin-bottom: var(--gutter-normal); } 
+
+@media(min-width: 901px) { 
+    .work__image-box { 
+        flex: 1; 
+        margin: 0 0 0 10rem; 
+    } 
+} 
+
+@media(max-width: 900px) { 
+    .work__code { height: 4rem; } 
+} 
+
+.about__content { 
+    display: flex; 
+    flex-direction: row-reverse; 
+    align-items: center; 
+} 
+
+@media(max-width: 900px) { 
+    .about__content { 
+        flex-direction: column-reverse; 
+        align-items: initial; 
+    } 
+} 
+
+@media(min-width: 901px) { 
+    .about__text { flex: 0 0 55%; } 
+    .about__photo-container { 
+        flex: 1; 
+        margin: 0 var(--gutter-huge) 0 0; 
+    }
+} 
+
+.contact__info { max-width: var(--container-medium-width); } 
+
+.footer { 
+    text-align: center; 
+    padding: var(--gutter-medium) 0 var(--gutter-normal); 
+} 
+
+.footer__social-links { 
+    display: flex; 
+    justify-content: center; 
+    padding: var(--gutter-normal) 0; 
+    list-style: none; 
+} 
+
+.footer__social-link-item:not(:last-of-type) { 
+    margin-right: var(--gutter-small); 
+} 
+
+.footer__social-image { height: 4rem; } 
+
+/* --------------------------------------- */
+/* ---- CSS Only Lightbox Framework ------ */
+/* --------------------------------------- */
+.css-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    background: rgba(10, 11, 13, 0.96);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
 }
 
-/* ==========================================================================
-   ORIGINAL LAYOUT FIXES & ELEMENT BOUNDARIES 
-   ========================================================================== */
-
-/* Forces the project block content to stretch and fill its flex layout container */
-.work__text, 
-.about__text {
-    flex: 1;
+.css-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 850px;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 8px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+    border: 1px solid var(--border-dark);
 }
 
-/* Hard constraints to prevent showcase images from expanding uncontrollably */
-.work__image-box {
-    flex: 1;
-    max-width: 550px; /* Restricts maximum width on desktop */
-    width: 100%;
+.css-modal-close {
+    position: absolute;
+    top: -4.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    font-family: 'Jost', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-.work__image, 
-.about__photo {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 6px;
+.css-modal-close:hover {
+    color: var(--accent-red);
 }
 
-/* Explicit size boundaries for your GitHub and Itch.io project icons */
-.work__code {
-    display: inline-block;
-    height: 3.5rem !important;
-    width: auto;
-    object-fit: contain;
-}
-
-/* Explicit size boundaries for the global footer social media links */
-.footer__social-image {
-    height: 4rem !important;
-    width: auto;
-    object-fit: contain;
-}
-
-/* Ensures layout columns drop cleanly into a vertical stack on mobile screens */
-@media(max-width: 900px) {
-    .work__box, 
-    .about__content {
-        flex-direction: column-reverse;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .work__image-box {
-        margin: 0 0 var(--gutter-normal) 0;
-        max-width: 100%;
-    }
-    
-    .work__links {
-        justify-content: center;
-    }
+.css-modal-overlay:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
 }
