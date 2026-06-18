@@ -43,8 +43,8 @@ const openTrailerBtn = document.getElementById('openTrailerBtn');
 const closeTrailerBtn = document.getElementById('closeTrailerBtn');
 const modalVideoFrame = document.getElementById('modalVideoFrame');
 
-// Replace this with your verified YouTube share string link id
-const youtubeEmbedUrl = "https://youtube.com";
+// Trailer URL
+const youtubeEmbedUrl = "https://www.youtube.com/embed/ptTOkNQs6W4?si=DLygMpXl6pRLfdSU";
 
 if (openTrailerBtn && trailerModal && modalVideoFrame) {
     // Open Overlay Window Event
