@@ -33,7 +33,7 @@
     --line-height-normal: 1.7; 
     --line-height-small: 1.2; 
     --black: #0a0b0d; 
-    --accent-red: #e60012; /* Premium Studio Crimson */ 
+    --accent-red: #e60012; 
     --card-bg: #13161c;
     --border-dark: #222530;
     --white: #f0e9f2; 
@@ -351,11 +351,21 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
 .work__box { 
     display: flex; 
     align-items: center; 
+    justify-content: space-between;
 } 
 
+/* Alternates the images and text blocks row by row automatically */
+.work__box:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.work__box:nth-child(even) .work__image-box {
+    margin: 0 10rem 0 0;
+}
+
 @media(max-width: 900px) { 
-    .work__box { 
-        align-items: initial; 
+    .work__box, .work__box:nth-child(even) { 
+        align-items: center; 
         flex-direction: column-reverse; 
     } 
 } 
@@ -374,14 +384,26 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
 } 
 
 .work__code { 
-    display: block; 
+    display: inline-block; 
     height: 3rem; 
+    width: auto;
     transition: all .3s; 
 } 
 
 .work__code:hover { transform: scale(1.2); } 
 
-.work__image-box { margin-bottom: var(--gutter-normal); } 
+.work__image-box { 
+    margin-bottom: var(--gutter-normal); 
+    max-width: 550px;
+    width: 100%;
+} 
+
+.work__image, .about__photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+}
 
 @media(min-width: 901px) { 
     .work__image-box { 
@@ -392,18 +414,20 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
 
 @media(max-width: 900px) { 
     .work__code { height: 4rem; } 
+    .work__image-box { margin: 0 0 var(--gutter-normal) 0; }
 } 
 
 .about__content { 
     display: flex; 
     flex-direction: row-reverse; 
     align-items: center; 
+    justify-content: space-between;
 } 
 
 @media(max-width: 900px) { 
     .about__content { 
         flex-direction: column-reverse; 
-        align-items: initial; 
+        align-items: center; 
     } 
 } 
 
@@ -411,6 +435,7 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     .about__text { flex: 0 0 55%; } 
     .about__photo-container { 
         flex: 1; 
+        max-width: 450px;
         margin: 0 var(--gutter-huge) 0 0; 
     }
 } 
@@ -433,7 +458,11 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     margin-right: var(--gutter-small); 
 } 
 
-.footer__social-image { height: 4rem; } 
+.footer__social-image { 
+    height: 4rem; 
+    width: auto;
+    display: inline-block;
+} 
 
 /* --------------------------------------- */
 /* ---- CSS Only Lightbox Framework ------ */
