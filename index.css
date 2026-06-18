@@ -1,72 +1,46 @@
-/* ----------------------------------------- */
-/* ----- Keyboard Accessibility Focus ------ */
-/* ----------------------------------------- */
-const handleFirstTab = (e) => { 
-    if(e.key === 'Tab') { 
-        document.body.classList.add('user-is-tabbing'); 
-        window.removeEventListener('keydown', handleFirstTab); 
-        window.addEventListener('mousedown', handleMouseDownOnce); 
-    } 
-}; 
+/* ... All your original portfolio styles go here ... */
 
-const handleMouseDownOnce = () => { 
-    document.body.classList.remove('user-is-tabbing'); 
-    window.removeEventListener('mousedown', handleMouseDownOnce); 
-    window.addEventListener('keydown', handleFirstTab); 
-}; 
+/* --------------------------------------- */
+/* ---- CSS Only Lightbox Framework ------ */
+/* --------------------------------------- */
+.css-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 11, 13, 0.96);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
 
-window.addEventListener('keydown', handleFirstTab); 
+/* This is the magic rule that makes it open when clicking the image link */
+.css-modal-overlay:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
 
-/* ----------------------------------------- */
-/* ------- Back to Top Button Logic -------- */
-/* ----------------------------------------- */
-const backToTopButton = document.querySelector(".back-to-top"); 
+.css-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 850px;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 8px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+}
 
-let alterStyles = (isBackToTopRendered) => { 
-    if (!backToTopButton) return; 
-    backToTopButton.style.visibility = isBackToTopRendered ? "visible" : "hidden"; 
-    backToTopButton.style.opacity = isBackToTopRendered ? "1" : "0"; 
-    backToTopButton.style.transform = isBackToTopRendered ? "scale(1)" : "scale(0)"; 
-}; 
-
-window.addEventListener("scroll", () => { 
-    if (window.scrollY > 700) { 
-        alterStyles(true); 
-    } else { 
-        alterStyles(false); 
-    } 
-}); 
-
-/* ----------------------------------------- */ 
-/* ------- Project Trailer Lightbox -------- */ 
-/* ----------------------------------------- */ 
-const trailerModal = document.getElementById('trailerModal'); 
-const openTrailerBtn = document.getElementById('openTrailerBtn'); 
-const closeTrailerBtn = document.getElementById('closeTrailerBtn'); 
-const modalVideoFrame = document.getElementById('modalVideoFrame'); 
-
-// Optimized Trailer URL with Autoplay and Clean Branding Parameters
-const youtubeEmbedUrl = "https://www.youtube.com/embed/ptTOkNQs6W4?si=DLygMpXl6pRLfdSU"; 
-
-if (openTrailerBtn && trailerModal && modalVideoFrame) { 
-    // Open Overlay Window Event 
-    openTrailerBtn.addEventListener('click', () => { 
-        modalVideoFrame.src = youtubeEmbedUrl; 
-        trailerModal.style.visibility = "visible"; 
-        trailerModal.style.opacity = "1"; 
-    }); 
-
-    // Close Overlay Window Function 
-    const closeModal = () => { 
-        trailerModal.style.opacity = "0"; 
-        trailerModal.style.visibility = "hidden"; 
-        modalVideoFrame.src = ""; // Strips source code to instantly halt audio track 
-    }; 
-
-    if (closeTrailerBtn) closeTrailerBtn.addEventListener('click', closeModal); 
-
-    // Close overlay if background element workspace is clicked 
-    trailerModal.addEventListener('click', (e) => { 
-        if (e.target === trailerModal) closeModal(); 
-    }); 
+.css-modal-close {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    color: #fff;
+    text-decoration: none;
 }
