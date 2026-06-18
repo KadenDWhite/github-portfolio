@@ -185,3 +185,23 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     display: block; 
     position: absolute; 
     top:
+/* Fix massive image layout scaling bugs */
+.work__image-box img,
+.about__photo-container img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+}
+
+.footer__social-link-item a {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+}
+
+.footer__social-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
