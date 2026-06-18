@@ -35,3 +35,37 @@ window.addEventListener("scroll", () => {
     } 
 });
 
+/* ----------------------------------------- */
+/* ------- Project Trailer Lightbox -------- */
+/* ----------------------------------------- */
+const trailerModal = document.getElementById('trailerModal');
+const openTrailerBtn = document.getElementById('openTrailerBtn');
+const closeTrailerBtn = document.getElementById('closeTrailerBtn');
+const modalVideoFrame = document.getElementById('modalVideoFrame');
+
+// Replace this with your verified YouTube share string link id
+const youtubeEmbedUrl = "https://youtube.com";
+
+if (openTrailerBtn && trailerModal && modalVideoFrame) {
+    // Open Overlay Window Event
+    openTrailerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalVideoFrame.src = youtubeEmbedUrl;
+        trailerModal.style.visibility = "visible";
+        trailerModal.style.opacity = "1";
+    });
+
+    // Close Overlay Window Function
+    const closeModal = () => {
+        trailerModal.style.opacity = "0";
+        trailerModal.style.visibility = "hidden";
+        modalVideoFrame.src = ""; // Strips source code to instantly halt audio track
+    };
+
+    if (closeTrailerBtn) closeTrailerBtn.addEventListener('click', closeModal);
+    
+    // Close overlay if background element workspace is clicked
+    trailerModal.addEventListener('click', (e) => {
+        if (e.target === trailerModal) closeModal();
+    });
+}
