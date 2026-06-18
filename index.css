@@ -403,9 +403,10 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     width: 100%;
     height: auto;
     max-height: 350px; /* Capping maximum display size for project showcases */
-    object-fit: contain;
     border-radius: 6px;
 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    
     /* Smooth animated shadow and position change over 0.3 seconds*/
     transition: box-shadow 0.3s ease, transform 0.3s ease, color 0.2s;
 }
