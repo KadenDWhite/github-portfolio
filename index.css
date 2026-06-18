@@ -493,3 +493,11 @@ body:not(.user-is-tabbing) button:focus, body:not(.user-is-tabbing) a:focus {
     pointer-events: all;
 }
 
+/* --------------------------------------- */
+/* ---- JS Lightbox Interop Fix ---------- */
+/* --------------------------------------- */
+#trailerModal[style*="visible"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+}
