@@ -8,11 +8,10 @@
     <title>Kaden Donnell White | Game Developer Portfolio</title> 
     <meta name="description" content="Computer Science graduate with foundational expertise in gameplay programming, object-oriented logic, and game design systems."> 
     <meta name="keywords" content="Kaden White, Game Developer, Game Design, Unity, C#, C++, Programming Portfolio" /> 
-    <link rel="stylesheet" href="index.css?v=1.3" /> 
+    <link rel="stylesheet" href="index.css?v=2.0" /> 
 </head> 
 <body> 
 
-    <!-- ***** Header Banner Section ***** --> 
     <header class="header" role="banner" id="top"> 
         <div class="row"> 
             <nav class="nav" role="navigation"> 
@@ -35,13 +34,11 @@
     </header> 
 
     <main role="main"> 
-        <!-- ***** Work / Project Grid Showcase ***** --> 
         <section class="games" id="games"> 
             <div class="row"> 
                 <h2>My Projects</h2> 
                 <div class="work__boxes"> 
 
-                    <!-- Project 1: Let's Get Nuts --> 
                     <div class="work__box"> 
                         <div class="work__text"> 
                             <h3>Let's Get Nuts</h3> 
@@ -59,7 +56,6 @@
                                 </a> 
                             </div> 
                         </div> 
-                        <!-- Clickable Screenshot pointing directly to the #watchTrailer CSS target --> 
                         <div class="work__image-box"> 
                             <a href="#watchTrailer" style="outline: none; display: block; cursor: pointer; text-decoration: none;" title="Click to view Gameplay Trailer"> 
                                 <img src="./images/project-1.png" class="work__image" alt="Gone Nuts Project Screenshot" /> 
@@ -68,19 +64,13 @@
                                 </div> 
                             </a> 
                         </div> 
-                    </div> <!-- End of Let's Get Nuts work__box -->
-                        
-                    <!-- 100% CSS ONLY TRAILER LIGHTBOX MODAL OVERLAY --> 
-                    <div id="watchTrailer" class="css-modal-overlay"> 
+                    </div> <div id="watchTrailer" class="css-modal-overlay"> 
                         <div class="css-modal-content"> 
-                            <!-- Closing the modal simply clears the URL target hash --> 
                             <a href="#games" class="css-modal-close">✕ Close Player</a> 
-                            <!-- Embedded your specific YouTube trailer source video here directly -->
                             <iframe src="https://www.youtube.com/embed/ptTOkNQs6W4" title="Let's Get Nuts Gameplay Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border-radius: 6px;"></iframe> 
                         </div> 
                     </div>
 
-                    <!-- Project 2: Shark Trivia --> 
                     <div class="work__box"> 
                         <div class="work__text"> 
                             <h3>Shark Trivia</h3> 
@@ -92,8 +82,8 @@
                                 <li>Cipher Engine Tools</li> 
                             </ul> 
                             <div class="work__links"> 
-                                <a href="https://saugamedev.itch.io/" target="_blank" class="link__text"> Visit Site <span>&rarr;</span> </a> 
-                                <a href="https://saugamedev.itch.io/shark-trivia" target="_blank" class="link__text"> 
+                                <a href="https://saugamedev.itch.io/shark-trivia" target="_blank" class="link__text"> Visit Site <span>&rarr;</span> </a> 
+                                <a href="https://saugamedev.itch.io/" target="_blank" class="link__text"> 
                                     <img src="./images/itch_io.svg" class="work__code" title="View Itch Studio Portal" alt="Itch.Io Asset Link"> 
                                 </a> 
                                 <a href="https://github.com/EricWRogers/SharkTrivia" target="_blank" class="link__text"> 
@@ -105,11 +95,32 @@
                             <img src="./images/project-2.png" class="work__image" alt="Shark Trivia Project Screenshot" /> 
                         </div> 
                     </div> 
-                </div> <!-- End of work__boxes --> 
-            </div> 
+
+                    <div class="work__box"> 
+                        <div class="work__text"> 
+                            <h3>Banantics</h3> 
+                            <p>A 2D Turn-Based (TBS) Tactical Card Strategy Game featuring rapid strategic movement pipelines.</p> 
+                            <ul class="work__list"> 
+                                <li>Unity Engine</li> 
+                                <li>C#</li> 
+                                <li>Turn-Based Systems Logic</li> 
+                                <li>UI Inventory Layouts</li> 
+                            </ul> 
+                            <div class="work__links"> 
+                                <a href="https://github.com" target="_blank" class="link__text"> Visit Site <span>&rarr;</span> </a> 
+                                <a href="https://github.com" target="_blank" class="link__text"> 
+                                    <img src="./images/github.svg" class="work__code" title="View Source Code Repository" alt="GitHub Repository"> 
+                                </a> 
+                            </div> 
+                        </div> 
+                        <div class="work__image-box"> 
+                            <img src="./images/project-3.png" class="work__image" alt="Banantics Project Screenshot" /> 
+                        </div> 
+                    </div> 
+
+                </div> </div> 
         </section> 
 
-        <!-- ***** About Me Core Narrative Section ***** --> 
         <section class="about" id="about"> 
             <div class="row"> 
                 <h2>About Me</h2> 
@@ -126,7 +137,6 @@
         </section> 
     </main> 
 
-    <!-- ***** Contact Panel Entry Portal ***** --> 
     <section class="contact" id="contact"> 
         <div class="row"> 
             <h2>Get in Touch</h2> 
@@ -137,7 +147,6 @@
         </div> 
     </section> 
 
-    <!-- ***** Global Navigation Footer Sub-Array ***** --> 
     <footer role="contentinfo" class="footer"> 
         <div class="row"> 
             <ul class="footer__social-links"> 
@@ -155,5 +164,6 @@
         </div> 
     </footer> 
 
+    <script src="index.js"></script>
 </body> 
 </html>
