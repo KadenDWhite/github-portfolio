@@ -68,7 +68,20 @@
                                 </div> 
                             </a> 
                         </div> 
-                    </div> 
+                    </div> <!-- End of Let's Get Nuts work__box -->
+
+                    <!-- ======================================================== -->
+                    <!-- ADD THIS PREMIUM VIDEO OVERLAY LIGHTBOX MARKUP RIGHT HERE -->
+                    <!-- ======================================================== -->
+                    <div id="trailerModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 11, 13, 0.95); z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s ease;"> 
+                        <div style="position: relative; width: 90%; max-width: 800px; aspect-ratio: 16/9; background: #000; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); border: 1px solid var(--border-dark);"> 
+                            <!-- Top Right Close Anchor Button --> 
+                            <button id="closeTrailerBtn" style="position: absolute; top: -4.5rem; right: 0; background: none; border: none; color: #fff; font-size: 3rem; cursor: pointer; font-family: sans-serif; transition: color 0.2s;" onmouseover="this.style.color='#e60012'" onmouseout="this.style.color='#fff'">✕ Close</button> 
+                            <!-- Video Delivery Frame --> 
+                            <iframe id="modalVideoFrame" src="" title="Let's Get Nuts Gameplay Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border-radius: 6px;"></iframe> 
+                        </div> 
+                    </div>
+                    <!-- ======================================================== -->
 
                     <!-- Project 2: Shark Trivia --> 
                     <div class="work__box"> 
